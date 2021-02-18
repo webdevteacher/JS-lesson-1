@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Basic Bootstrap Template</title>
+    <!-- Bootstrap CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    Hello there
+    <!-- Comment -->
+    <p>
+        Fifth javascript lesson
+    </p>
+
+    <div id="example"> 
+        Hello
+        <b>World</b>
+    </div>
+
+    <div>
+        Lorem ipsum dolores and some stuff
+    </div>
+
+    <div hidden>
+        This boring div has the attribute hidden
+    </div>
+
+    <div id="elem">
+        We will assign the hidden attribute with a script
+    </div>
+
+    <a></a>
+    <script>
+        //DOM NODE HIERARCHY
+        /*
+            EventTarget - is the abstract root class. Objects of that class are never created.
+                it serves as a base so that all DOM nodes support so-called "events".
+
+            Node - abstract class. It serves as a base for DOM nodes. It provides the core tree functionality
+                which is parentNode, nextSibling, childNodes and so on. Objects of Node class are never created.
+                But, there are classes that inherit from it like Text, Element and Comment.
+            
+            Element - is a base for DOM elements. It provides element-level navigation like nextElementSibling,
+                children and searching methods like getElementByTagName, querySelector.
+
+            HTMLElement - the basic class for all HTML elements. Is is inherited by concrete HTML elements.
+            example: HTMLBodyElement, HTMLAnchorElement etc...
+
+        */
+
+        console.log(document.body.constructor.name); //HTMLBodyElement
+
+        console.log(document.body) // [object HTMLBodyElement]
+
+        //instanceof
+
+        console.log(document.body instanceof HTMLBodyElement); //true
+        console.log(document.body instanceof HTMLElement); //true
+        console.log(document.body instanceof Element); //true
+        console.log(document.body instanceof Node); //true
+        console.log(document.body instanceof EventTarget); //true
+
+        //console.log(element) - shows the element DOM tree
+        //console.dir(element) - shows the element as a DOM object, good to explore
+
+        console.log(document.body);
+        console.dir(document.body);
+
+        //                    nodeType property // gets the type of a DOM node
+
+        //elem.nodeType == 1 for element nodes
+        //elem.nodeType == 3 for text nodes,
+        //elem.nodeType == 9 for the document object,
+        //check the rest here --> https://dom.spec.whatwg.org/#node
+
+        let element = document.body;
+
+        console.log(element.nodeType); // 1 
+
+        console.log(element.firstChild.nodeType); // 3
+
+        console.log(document.nodeType); // 9
+
+    ////////// nodeName and TagName
+
+    console.log(document.body.nodeName); // nodeName is defined for any Node.
+    console.log(document.body.tagName); // tagName exists only for Element nodes.
+
+    //// REMINDER innerHTML += something DOES A FULL OVERWRITE
+
+    ///// outerHTML
+    
+    console.log(example.outerHTML);
+
+    let div = document.querySelector('div');
+
+    div.outerHTML = '<p>A new element</p>';
+
+    console.log(div.outerHTML);
+
+    ///           nodeValue/data
+        //innerHTML property is only valid for element nodes.
+        //therefore we need nodeValue and data properties for other types.
+    let smallText = document.body.firstChild;
+    console.log(smallText.data);
+
+    let comment = smallText.nextSibling;
+    console.log(comment.data);
+
+
+    /// The HIDDEN property
+        elem.hidden = true;
+    </script>    
+    <!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    
+</body>
+</html>
